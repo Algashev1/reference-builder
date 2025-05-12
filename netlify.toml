@@ -1,6 +1,6 @@
 [build]
 command = "npm run netlify:build"
-publish = "dist/reference-builder/browser"
+publish = "dist/reference-builder/browser/browser"
 functions = "netlify/functions"
 
 [[redirects]]
