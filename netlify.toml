@@ -1,0 +1,9 @@
+[build]
+command = "npm run netlify:build"
+publish = "dist/reference-builder/browser"
+functions = "netlify/functions"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

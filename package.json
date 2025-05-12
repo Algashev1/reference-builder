@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ssr": "ng build && ng run reference-builder:server",
+    "netlify:build": "ng build --configuration=production && ng run reference-builder:server && netlify-angular-runtime",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:reference-builder": "node dist/reference-builder/server/server.mjs"
@@ -20,6 +22,7 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.11",
+    "@netlify/angular-runtime": "^2.3.1",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
