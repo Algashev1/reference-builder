@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:ssr": "ng build && ng run reference-builder:server",
-    "netlify:build": "ng build --configuration=production && ng run reference-builder:server && netlify-angular-runtime",
+    "netlify:build": "ng build --configuration=production && ng run reference-builder:server",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:reference-builder": "node dist/reference-builder/server/server.mjs"
