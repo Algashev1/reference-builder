@@ -1,1 +1,36 @@
-<p>Содержимое для "Ручное создание источника" пока пустое.</p>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <!-- Выпадающий список для выбора типа источника -->
+      <div class="source-dropdown mb-4">
+        <div class="dropdown">
+          <button
+            class="btn btn-outline-dark dropdown-toggle w-100"
+            type="button"
+            id="sourceDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ selectedSourceLabel || 'Выберите тип источника' }}
+          </button>
+          <ul class="dropdown-menu w-100 shadow-sm rounded-3" aria-labelledby="sourceDropdown">
+            <li *ngFor="let source of sources">
+              <a class="dropdown-item py-2" href="javascript:void(0)"
+                 (click)="selectSourceType(source.value)">
+                {{ source.label }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Динамическая форма -->
+      <div *ngIf="selectedSourceType">
+        <app-dynamic-source-form
+          [sourceType]="selectedSourceType"
+          [standard]="'GOST_7_0_5_2008'">
+        </app-dynamic-source-form>
+      </div>
+    </div>
+  </div>
+</div>

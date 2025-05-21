@@ -1,5 +1,20 @@
-<nav>
-    <a routerLink="/manual-source" routerLinkActive="active" ariaCurrentWhenActive="page">Ручное создание источника</a>
-    <a routerLink="/import-source" routerLinkActive="active" ariaCurrentWhenActive="page">Импорт источника</a>
+<nav class="nav gap-2 p-3">
+  <a
+    class="btn btn-outline-primary rounded-pill px-3 py-1"
+    routerLink="/manual-source"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Ручное создание источника
+  </a>
+  <a
+    class="btn btn-outline-secondary rounded-pill px-3 py-1"
+    routerLink="/import-source"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Импорт источника
+  </a>
 </nav>
+
 <router-outlet></router-outlet>

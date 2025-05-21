@@ -1,0 +1,69 @@
+@if (form) {
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h5>{{ getSourceLabel() }}</h5>
+    </div>
+
+    <div class="card-body">
+      <form [formGroup]="form">
+        @for (field of fields; track field.name) {
+        <div class="mb-3">
+          <label class="form-label">
+            {{ field.label }}
+            @if (field.required) {
+            <span class="text-danger">*</span>
+            }
+          </label>
+
+          @if (field.type === 'text' || field.type === 'number' || field.type === 'url') {
+          <input [formControlName]="field.name"
+                 [type]="field.type"
+                 class="form-control"
+                 [class.is-invalid]="form.get(field.name)?.invalid && form.get(field.name)?.touched">
+          }
+
+          @if (field.type === 'select') {
+          <select [formControlName]="field.name" class="form-select">
+            <option value="">-- Выберите --</option>
+            @for (option of field.options; track option) {
+            <option [value]="option">{{ option }}</option>
+            }
+          </select>
+          }
+
+          @if (field.type === 'date') {
+          <input [formControlName]="field.name"
+                 type="date"
+                 class="form-control">
+          }
+
+          @if (field.hint) {
+          <small class="form-text text-muted">{{ field.hint }}</small>
+          }
+
+          @if (form.get(field.name)?.invalid && form.get(field.name)?.touched) {
+          <div class="invalid-feedback">
+            Поле обязательно для заполнения
+          </div>
+          }
+        </div>
+        }
+      </form>
+
+      @if (currentFormat) {
+      <div class="mt-4 p-3 bg-light rounded">
+        <h6>Пример оформления:</h6>
+        <p class="mb-1">{{ currentFormat }}</p>
+        <h6 class="mt-3">Ваша ссылка:</h6>
+        <p class="font-monospace">{{ getFormattedCitation() }}</p>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+} @else {
+<div class="alert alert-info mt-4">
+  Выберите тип источника для отображения формы
+</div>
+}

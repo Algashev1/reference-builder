@@ -1,0 +1,481 @@
+{
+  "GOST_7_0_5_2008": {
+    "book": {
+      "label": "Книга",
+      "format": "{authors} {title}. - {edition}-е изд. - {city}: {publisher}, {year}. - {pages}c.",
+      "fields": [
+        {
+          "name": "authors",
+          "label": "Авторы",
+          "type": "text",
+          "required": true,
+          "hint": "Фамилия И.О., Фамилия И.О."
+        },
+        {
+          "name": "title",
+          "label": "Название",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "edition",
+          "label": "Издание",
+          "type": "number",
+          "required": false,
+          "hint": "Цифра (2, 3 и т.д.)"
+        },
+        {
+          "name": "city",
+          "label": "Город издания",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "publisher",
+          "label": "Издательство",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "year",
+          "label": "Год",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pages",
+          "label": "Количество страниц",
+          "type": "number",
+          "required": false
+        }
+
+      ]
+    },
+    "journal-article": {
+      "label": "Статья из журнала",
+      "format": "{authors} {title} // {journal}. - {year}. - Т. {volume}, № {issue}. - С. {pages}.",
+      "fields": [
+        {
+          "name": "authors",
+          "label": "Авторы",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "title",
+          "label": "Название статьи",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "journal",
+          "label": "Название журнала",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "year",
+          "label": "Год",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "issue",
+          "label": "Номер",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "pages",
+          "label": "Страницы",
+          "type": "text",
+          "required": true,
+          "hint": "Например: 45-52"
+        }
+      ]
+    },
+    "collection-article": {
+      "label": "Статья из сборника",
+      "format": "{authors} {title} // {collection}: {collectionType}. - {city}: {publisher}, {year}. - С. {pages}.",
+      "fields": [
+        {
+          "name": "authors",
+          "label": "Авторы",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "title",
+          "label": "Название статьи",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "collection",
+          "label": "Название сборника",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "label": "Город",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "publisher",
+          "label": "Издательство",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "year",
+          "label": "Год",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pages",
+          "label": "Страницы",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    "thesis": {
+      "label": "Диссертация",
+      "format": "{author} {title}: дис. {degree} {specialtyCode} {specialty} / {authorFull}. - {city}, {year}. - {pages}c.",
+      "fields": [
+        {
+          "name": "author",
+          "label": "Фамилия, имя и отчество автора полностью",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "title",
+          "label": "Название",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "degree",
+          "label": "Вид",
+          "type": "select",
+          "options": ["кандидатская", "докторская"],
+          "required": true
+        },
+        {
+          "name": "degree2",
+          "label": "Отрасль наук",
+          "type": "select",
+          "options": ["архитектура", "биологические науки", "ветеринарные науки", "военные науки", "географические науки",
+            "геолого-минералогические науки", "искусствоведение", "исторические науки", "культурология", "медицинские науки",
+            "педагогические науки", "политические науки", "психологические науки", "социологические науки", "сельскохозяйственные науки",
+            "технические науки", "фармацевтические науки", "физико-математические науки", "филологические науки", "философские науки",
+            "химические науки", "экономические науки", "юридические науки"
+          ],
+
+          "required": true
+        },
+        {
+          "name": "specialtyCode",
+          "label": "Код специальности",
+          "type": "text",
+          "required": true,
+          "hint": "Например: 05.13.10"
+        },
+        {
+          "name": "specialty",
+          "label": "Организация, в которой проходила защита",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "label": "Город",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "year",
+          "label": "Год",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pages",
+          "label": "Количество страниц",
+          "type": "number",
+          "required": true
+        }
+      ]
+    },
+    "patent": {
+      "label": "Патент",
+      "format": "{country} {patentNumber}, {publishDate}. {title} / {authors}.",
+      "fields": [
+        {
+          "name": "country",
+          "label": "Страна",
+          "type": "text",
+          "required": true,
+          "hint": "Например: РФ"
+        },
+        {
+          "name": "patentNumber",
+          "label": "Номер патента",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "publishDate",
+          "label": "Дата публикации",
+          "type": "date",
+          "required": true
+        },
+        {
+          "name": "title",
+          "label": "Название",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "authors",
+          "label": "Авторы",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    "regulation": {
+      "label": "Нормативный документ",
+      "format": "{title}: {documentType} от {approvalDate} № {number}. - {city}: {publisher}, {year}. - {pages}c.",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Название",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "documentType",
+          "label": "Тип документа",
+          "type": "select",
+          "options": ["Федеральный закон", "ГОСТ", "СанПиН", "Приказ"],
+          "required": true
+        },
+        {
+          "name": "approvalDate",
+          "label": "Дата утверждения",
+          "type": "date",
+          "required": true
+        },
+        {
+          "name": "number",
+          "label": "Номер",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "label": "Город",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "publisher",
+          "label": "Издательство",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "year",
+          "label": "Год",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pages",
+          "label": "Количество страниц",
+          "type": "number",
+          "required": false
+        }
+      ]
+    },
+    "internet-resource": {
+      "label": "Интернет-ресурс",
+      "format": "{title} [Электронный ресурс]. - URL: {url} (дата обращения: {accessDate}).",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Название",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "url",
+          "label": "URL",
+          "type": "url",
+          "required": true
+        },
+        {
+          "name": "accessDate",
+          "label": "Дата обращения",
+          "type": "date",
+          "required": true
+        },
+        {
+          "name": "authors",
+          "label": "Авторы (если есть)",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    "monograph": {
+      "label": "Монография",
+      "format": "{authors} {title} / {authorsFull}. - {city}: {publisher}, {year}. - {pages}c.",
+      "fields": [
+        {
+          "name": "authors",
+          "label": "Авторы (инициалы)",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "title",
+          "label": "Название",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "authorsFull",
+          "label": "Авторы (полностью)",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "label": "Город",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "publisher",
+          "label": "Издательство",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "year",
+          "label": "Год",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pages",
+          "label": "Количество страниц",
+          "type": "number",
+          "required": true
+        }
+      ]
+    },
+    "textbook": {
+      "label": "Учебник",
+      "format": "{authors} {title}: учебник / {authorsFull}. - {edition}-е изд. - {city}: {publisher}, {year}. - {pages}c.",
+      "fields": [
+        {
+          "name": "authors",
+          "label": "Авторы (инициалы)",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "title",
+          "label": "Название",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "authorsFull",
+          "label": "Авторы (полностью)",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "edition",
+          "label": "Издание",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "city",
+          "label": "Город",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "publisher",
+          "label": "Издательство",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "year",
+          "label": "Год",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pages",
+          "label": "Количество страниц",
+          "type": "number",
+          "required": true
+        }
+      ]
+    },
+    "reference-book": {
+      "label": "Справочник",
+      "format": "{title}: справочник / {authors}. - {city}: {publisher}, {year}. - {pages}c.",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Название",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "authors",
+          "label": "Авторы",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "city",
+          "label": "Город",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "publisher",
+          "label": "Издательство",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "year",
+          "label": "Год",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pages",
+          "label": "Количество страниц",
+          "type": "number",
+          "required": true
+        }
+      ]
+    }
+  }
+}
